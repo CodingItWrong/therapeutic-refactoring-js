@@ -18,7 +18,7 @@ describe('xyz', () => {
   describe('xyzFilename', () => {
     it('works', () => {
       const target = disallowUndefinedProperties({
-        publishOn: new Date(2021, 3, 14),
+        publishOn: new Date(2021, 2, 7),
         xyzCategoryPrefix: 'abc',
         kind: 'unicorn',
         isPersonal: false,
@@ -26,7 +26,7 @@ describe('xyz', () => {
         title: 'magic & superglue',
       });
       const subject = xyzFilename(target);
-      expect(subject).toMatch(/14abcunicorn_1337_[0-9a-f]{8}_magicsuper\.jpg/);
+      expect(subject).toMatch(/07abcunicorn_1337_[0-9a-f]{8}_magicsuper\.jpg/);
     });
   });
 });
