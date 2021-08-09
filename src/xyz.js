@@ -7,10 +7,6 @@ export class XYZFile {
 
   name() {
     const target = this.target;
-    // File format:
-    // [day of month zero-padded][three-letter prefix] \
-    // _[kind]_[age_if_kind_personal]_[target.id] \
-    // _[8 random chars]_[10 first chars of title].jpg
     let filename = `${target.publishOn.getDate().toString().padStart(2, '0')}`;
     filename += `${target.xyzCategoryPrefix}`;
     filename += `${target.kind.replace(/_/g, '')}`;
