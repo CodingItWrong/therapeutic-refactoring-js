@@ -9,7 +9,7 @@ class XYZFile {
     const target = this.target;
     let filename = `${this.#publicationDay()}`;
     filename += `${this.#category()}`;
-    filename += `${target.kind.replace(/_/g, '')}`;
+    filename += `${this.#kind()}`;
     if (target.isPersonal) filename += `_${this.#age()}`;
     filename += `_${target.id.toString()}`;
     filename += `_${this.#noise()}`;
@@ -41,6 +41,10 @@ class XYZFile {
 
   #category() {
     return this.target.xyzCategoryPrefix;
+  }
+
+  #kind() {
+    return this.target.kind.replace(/_/g, '');
   }
 }
 
