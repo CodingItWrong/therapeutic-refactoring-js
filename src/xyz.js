@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-export class XYZFile {
+class XYZFile {
   constructor(target) {
     this.target = target;
   }
