@@ -7,11 +7,11 @@ class XYZFile {
 
   name() {
     const target = this.target;
-    let filename = `${this.#publicationDay()}`;
-    filename += `${this.#category()}`;
-    filename += `${this.#kind()}`;
+    let filename = this.#publicationDay();
+    filename += this.#category();
+    filename += this.#kind();
     if (target.isPersonal) filename += `_${this.#age()}`;
-    filename += `_${target.id.toString()}`;
+    filename += `_${target.id}`;
     filename += `_${this.#noise()}`;
     filename += `_${this.#truncatedTitle()}`;
     filename += '.jpg';
