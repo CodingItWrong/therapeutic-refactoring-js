@@ -16,31 +16,26 @@ function disallowUndefinedProperties(obj) {
 
 describe('xyz', () => {
   describe('xyzFilename', () => {
-    it('works', () => {
-      const target = disallowUndefinedProperties({
+    const target = overrides =>
+      disallowUndefinedProperties({
         publishOn: new Date(2021, 2, 7),
         xyzCategoryPrefix: 'abc',
         kind: 'magic_unicorn',
         isPersonal: false,
         id: 1337,
         title: 'I <3 Sparkles!!1!',
+        ...overrides,
       });
-      const subject = xyzFilename(target);
+
+    it('works', () => {
+      const subject = xyzFilename(target());
       expect(subject).toMatch(
         /07abcmagicunicorn_1337_[0-9a-f]{8}_isparkles\.jpg/,
       );
     });
 
     it('leaves square brackets?', () => {
-      const target = disallowUndefinedProperties({
-        publishOn: new Date(2021, 2, 7),
-        xyzCategoryPrefix: 'abc',
-        kind: 'magic_unicorn',
-        isPersonal: false,
-        id: 1337,
-        title: 'i[sparkle]s',
-      });
-      const subject = xyzFilename(target);
+      const subject = xyzFilename(target({title: 'i[sparkle]s'}));
       expect(subject).toMatch(
         /07abcmagicunicorn_1337_[0-9a-f]{8}_i\[sparkle\]\.jpg/,
       );
