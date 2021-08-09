@@ -47,5 +47,12 @@ describe('xyz', () => {
         /07abcmagicunicorn_042_1337_[0-9a-f]{8}_isparkles.jpg/,
       );
     });
+
+    it('handles null age', () => {
+      const subject = xyzFilename(target({isPersonal: true, age: null}));
+      expect(subject).toMatch(
+        /07abcmagicunicorn_000_1337_[0-9a-f]{8}_isparkles.jpg/,
+      );
+    });
   });
 });
