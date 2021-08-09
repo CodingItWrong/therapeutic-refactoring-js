@@ -7,7 +7,8 @@ class XYZFile {
 
   name() {
     const target = this.target;
-    let filename = this.#publicationDay();
+    let filename = '';
+    filename += this.#publicationDay();
     filename += this.#category();
     filename += this.#kind();
     if (target.isPersonal) filename += `_${this.#age()}`;
