@@ -13,9 +13,7 @@ export class XYZFile {
     if (target.isPersonal)
       filename += `_${String(target.age || 0).padStart(3, '0')}`;
     filename += `_${target.id.toString()}`;
-    const shasum = crypto.createHash('sha1');
-    shasum.update((Math.random() * 10000).toString());
-    filename += `_${shasum.digest('hex').substring(0, 8)}`;
+    filename += `_${this.#noise()}`;
     filename += `_${this.#truncatedTitle()}`;
     filename += '.jpg';
     return filename;
@@ -26,6 +24,12 @@ export class XYZFile {
       .toLowerCase()
       .replace(/[^\[a-z\]]/g, '')
       .substring(0, 10);
+  }
+
+  #noise() {
+    const shasum = crypto.createHash('sha1');
+    shasum.update((Math.random() * 10000).toString());
+    return shasum.digest('hex').substring(0, 8);
   }
 }
 
