@@ -8,14 +8,16 @@ class XYZFile {
   name() {
     const target = this.target;
     let filename = '';
-    filename += this.#publicationDay();
-    filename += this.#category();
-    filename += this.#kind();
+    filename += this.#prefix();
     if (target.isPersonal) filename += `_${this.#age()}`;
     filename += `_${target.id}`;
     filename += `_${this.#noise()}`;
     filename += `_${this.#truncatedTitle()}`;
     return `${filename}.jpg`;
+  }
+
+  #prefix() {
+    return [this.#publicationDay(), this.#category(), this.#kind()].join('');
   }
 
   #truncatedTitle() {
