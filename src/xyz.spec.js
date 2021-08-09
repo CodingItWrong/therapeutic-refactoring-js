@@ -23,11 +23,11 @@ describe('xyz', () => {
         kind: 'magic_unicorn',
         isPersonal: false,
         id: 1337,
-        title: 'magic & superglue',
+        title: 'I <3 Sparkles!!1!',
       });
       const subject = xyzFilename(target);
       expect(subject).toMatch(
-        /07abcmagicunicorn_1337_[0-9a-f]{8}_magicsuper\.jpg/,
+        /07abcmagicunicorn_1337_[0-9a-f]{8}_isparkles\.jpg/,
       );
     });
   });
