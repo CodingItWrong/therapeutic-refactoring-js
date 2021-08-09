@@ -20,6 +20,10 @@ describe('xyz', () => {
       const target = disallowUndefinedProperties({
         publishOn: new Date(2021, 3, 14),
         xyzCategoryPrefix: 'abc',
+        kind: 'unicorn',
+        isPersonal: false,
+        id: 1337,
+        title: 'magic & superglue',
       });
       const subject = xyzFilename(target);
       expect(subject).toEqual('something');
