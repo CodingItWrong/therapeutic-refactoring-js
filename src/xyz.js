@@ -10,8 +10,7 @@ export class XYZFile {
     let filename = `${target.publishOn.getDate().toString().padStart(2, '0')}`;
     filename += `${target.xyzCategoryPrefix}`;
     filename += `${target.kind.replace(/_/g, '')}`;
-    if (target.isPersonal)
-      filename += `_${String(target.age || 0).padStart(3, '0')}`;
+    if (target.isPersonal) filename += `_${this.#age()}`;
     filename += `_${target.id.toString()}`;
     filename += `_${this.#noise()}`;
     filename += `_${this.#truncatedTitle()}`;
@@ -30,6 +29,10 @@ export class XYZFile {
     const shasum = crypto.createHash('sha1');
     shasum.update((Math.random() * 10000).toString());
     return shasum.digest('hex').substring(0, 8);
+  }
+
+  #age() {
+    return String(this.target.age || 0).padStart(3, '0');
   }
 }
 
