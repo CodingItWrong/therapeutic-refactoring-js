@@ -54,5 +54,10 @@ describe('xyz', () => {
         /07abcmagicunicorn_000_1337_[0-9a-f]{8}_isparklysp.jpg/,
       );
     });
+
+    it('handles short titles', () => {
+      const subject = xyzFilename(target({title: 'O HAI'}));
+      expect(subject).toMatch(/07abcmagicunicorn_1337_[0-9a-f]{8}_ohai.jpg/);
+    });
   });
 });
