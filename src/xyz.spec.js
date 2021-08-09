@@ -26,7 +26,7 @@ describe('xyz', () => {
         title: 'magic & superglue',
       });
       const subject = xyzFilename(target);
-      expect(subject).toEqual('something');
+      expect(subject).toMatch(/14abcunicorn_1337_[0-9a-f]{8}_magicsuper\.jpg/);
     });
   });
 });
