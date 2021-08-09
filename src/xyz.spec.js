@@ -23,14 +23,14 @@ describe('xyz', () => {
         kind: 'magic_unicorn',
         isPersonal: false,
         id: 1337,
-        title: 'I <3 Sparkles!!1!',
+        title: 'I <3 SPARKLY Sparkles!!1!',
         ...overrides,
       });
 
     it('works', () => {
       const subject = xyzFilename(target());
       expect(subject).toMatch(
-        /07abcmagicunicorn_1337_[0-9a-f]{8}_isparkles\.jpg/,
+        /07abcmagicunicorn_1337_[0-9a-f]{8}_isparklysp\.jpg/,
       );
     });
 
@@ -44,14 +44,14 @@ describe('xyz', () => {
     it('personalizes', () => {
       const subject = xyzFilename(target({isPersonal: true, age: 42}));
       expect(subject).toMatch(
-        /07abcmagicunicorn_042_1337_[0-9a-f]{8}_isparkles.jpg/,
+        /07abcmagicunicorn_042_1337_[0-9a-f]{8}_isparklysp.jpg/,
       );
     });
 
     it('handles null age', () => {
       const subject = xyzFilename(target({isPersonal: true, age: null}));
       expect(subject).toMatch(
-        /07abcmagicunicorn_000_1337_[0-9a-f]{8}_isparkles.jpg/,
+        /07abcmagicunicorn_000_1337_[0-9a-f]{8}_isparklysp.jpg/,
       );
     });
   });
