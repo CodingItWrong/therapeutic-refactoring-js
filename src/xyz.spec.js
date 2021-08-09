@@ -19,6 +19,7 @@ describe('xyz', () => {
     it('works', () => {
       const target = disallowUndefinedProperties({
         publishOn: new Date(2021, 3, 14),
+        xyzCategoryPrefix: 'abc',
       });
       const subject = xyzFilename(target);
       expect(subject).toEqual('something');
