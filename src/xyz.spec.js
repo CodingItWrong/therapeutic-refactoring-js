@@ -40,5 +40,12 @@ describe('xyz', () => {
         /07abcmagicunicorn_1337_[0-9a-f]{8}_i\[sparkle\]\.jpg/,
       );
     });
+
+    it('personalizes', () => {
+      const subject = xyzFilename(target({isPersonal: true, age: 42}));
+      expect(subject).toMatch(
+        /07abcmagicunicorn_042_1337_[0-9a-f]{8}_isparkles.jpg/,
+      );
+    });
   });
 });
