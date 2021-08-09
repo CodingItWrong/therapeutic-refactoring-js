@@ -22,10 +22,10 @@ export class XYZFile {
   }
 
   #truncatedTitle() {
-    const truncatedTitle = this.target.title
+    return this.target.title
       .toLowerCase()
-      .replace(/[^\[a-z\]]/g, '');
-    return truncatedTitle.substring(0, 10);
+      .replace(/[^\[a-z\]]/g, '')
+      .substring(0, 10);
   }
 }
 
