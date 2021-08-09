@@ -30,5 +30,20 @@ describe('xyz', () => {
         /07abcmagicunicorn_1337_[0-9a-f]{8}_isparkles\.jpg/,
       );
     });
+
+    it('leaves square brackets?', () => {
+      const target = disallowUndefinedProperties({
+        publishOn: new Date(2021, 2, 7),
+        xyzCategoryPrefix: 'abc',
+        kind: 'magic_unicorn',
+        isPersonal: false,
+        id: 1337,
+        title: 'i[sparkle]s',
+      });
+      const subject = xyzFilename(target);
+      expect(subject).toMatch(
+        /07abcmagicunicorn_1337_[0-9a-f]{8}_i\[sparkle\]\.jpg/,
+      );
+    });
   });
 });
