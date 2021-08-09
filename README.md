@@ -1,6 +1,9 @@
-# your project name
+# Therapeutic Refactoring JS
 
-Describe your project in one sentence here.
+A translation of Katrina Owen's "Therapeutic Refactoring" code example from Ruby to JavaScript.
+
+- [Ruby Repo](https://github.com/kytrinyx/therapeutic-refactoring)
+- [Talk Video](https://youtu.be/J4dlF0kcThQ)
 
 ## Requirements
 
