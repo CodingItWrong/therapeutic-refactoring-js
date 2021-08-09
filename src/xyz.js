@@ -16,13 +16,17 @@ export class XYZFile {
     const shasum = crypto.createHash('sha1');
     shasum.update((Math.random() * 10000).toString());
     filename += `_${shasum.digest('hex').substring(0, 8)}`;
-    const truncatedTitle = target.title
+    filename += `_${this.#truncatedTitle()}`;
+    filename += '.jpg';
+    return filename;
+  }
+
+  #truncatedTitle() {
+    const truncatedTitle = this.target.title
       .replace(/[^\[a-z\]]/gi, '')
       .toLowerCase();
     const truncateTo = truncatedTitle.length > 10 ? 10 : truncatedTitle.length;
-    filename += `_${truncatedTitle.substring(0, truncateTo)}`;
-    filename += '.jpg';
-    return filename;
+    return truncatedTitle.substring(0, truncateTo);
   }
 }
 
