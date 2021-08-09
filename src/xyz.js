@@ -23,8 +23,8 @@ export class XYZFile {
 
   #truncatedTitle() {
     const truncatedTitle = this.target.title
-      .replace(/[^\[a-z\]]/gi, '')
-      .toLowerCase();
+      .toLowerCase()
+      .replace(/[^\[a-z\]]/g, '');
     const truncateTo = truncatedTitle.length > 10 ? 10 : truncatedTitle.length;
     return truncatedTitle.substring(0, truncateTo);
   }
