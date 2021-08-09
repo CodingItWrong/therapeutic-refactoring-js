@@ -5,7 +5,17 @@
   "author": "Josh Justice <me@codingitwrong.com>",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^27.0.6"
+    "@babel/core": "^7.15.0",
+    "@babel/eslint-parser": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-jest": "^27.0.6",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2"
   },
   "scripts": {
     "test": "jest --watchAll"
