@@ -7,13 +7,13 @@ class XYZFile {
 
   name() {
     const target = this.target;
-    let filename = '';
-    filename += this.#prefix();
-    if (target.isPersonal) filename += `_${this.#age()}`;
-    filename += `_${target.id}`;
-    filename += `_${this.#noise()}`;
-    filename += `_${this.#truncatedTitle()}`;
-    return `${filename}.jpg`;
+    const filename = [];
+    filename.push(this.#prefix());
+    if (target.isPersonal) filename.push(this.#age());
+    filename.push(target.id);
+    filename.push(this.#noise());
+    filename.push(this.#truncatedTitle());
+    return `${filename.join('_')}.jpg`;
   }
 
   #prefix() {
