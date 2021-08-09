@@ -6,11 +6,10 @@ class XYZFile {
   }
 
   name() {
-    const target = this.target;
     const filename = [];
     filename.push(this.#prefix());
-    if (target.isPersonal) filename.push(this.#age());
-    filename.push(target.id);
+    if (this.target.isPersonal) filename.push(this.#age());
+    filename.push(this.target.id);
     filename.push(this.#noise());
     filename.push(this.#truncatedTitle());
     return `${filename.join('_')}.jpg`;
