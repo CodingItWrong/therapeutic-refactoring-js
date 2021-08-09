@@ -7,7 +7,7 @@ export class XYZFile {
 
   name() {
     const target = this.target;
-    let filename = `${target.publishOn.getDate().toString().padStart(2, '0')}`;
+    let filename = `${this.#publicationDay()}`;
     filename += `${target.xyzCategoryPrefix}`;
     filename += `${target.kind.replace(/_/g, '')}`;
     if (target.isPersonal) filename += `_${this.#age()}`;
@@ -33,6 +33,10 @@ export class XYZFile {
 
   #age() {
     return String(this.target.age || 0).padStart(3, '0');
+  }
+
+  #publicationDay() {
+    return this.target.publishOn.getDate().toString().padStart(2, '0');
   }
 }
 
