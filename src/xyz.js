@@ -15,8 +15,7 @@ class XYZFile {
     filename += `_${target.id}`;
     filename += `_${this.#noise()}`;
     filename += `_${this.#truncatedTitle()}`;
-    filename += '.jpg';
-    return filename;
+    return `${filename}.jpg`;
   }
 
   #truncatedTitle() {
